@@ -65,8 +65,8 @@ const images = [
     description: 'Lighthouse Coast Sea',
   },
 ];
-//import SimpleLightbox from "simplelightbox/dist/simple-lightbox.esm";
-//import "simplelightbox/dist/simple-lightbox.min.css";
+import SimpleLightbox from "simplelightbox/dist/simple-lightbox.esm";
+import "simplelightbox/dist/simple-lightbox.min.css";
 
 // Отримуємо елемент UL
 const galleryContainer = document.querySelector(".gallery");
