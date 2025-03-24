@@ -1,0 +1,27 @@
+body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: #f4f4f4;
+        margin: 0;
+}
+
+.gallery {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        justify-content: center;
+        padding: 24px 156px;
+}
+
+.gallery-item {
+        list-style: none;
+}
+
+.gallery-image {
+        width: 360px;
+        height: 200px;
+        object-fit: cover;
+}
