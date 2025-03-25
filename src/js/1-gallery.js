@@ -1,3 +1,5 @@
+import "simplelightbox/dist/simple-lightbox.min.css";
+import SimpleLightbox from "simplelightbox";
 
 
 const images = [
@@ -65,30 +67,32 @@ const images = [
     description: 'Lighthouse Coast Sea',
   },
 ];
-import SimpleLightbox from "simplelightbox/dist/simple-lightbox.esm";
-import "simplelightbox/dist/simple-lightbox.min.css";
 
-// Отримуємо елемент UL
-const galleryContainer = document.querySelector(".gallery");
 
-// Створюємо розмітку для галереї
-const galleryMarkup = images
-  .map(
-    ({ preview, original, description }) => `
-      <li class="gallery-item">
-        <a class="gallery-link" href="${original}">
-          <img class="gallery-image" src="${preview}" alt="${description}" />
-        </a>
-      </li>
-    `
-  )
-  .join("");
+document.addEventListener("DOMContentLoaded", () => {
+  const galleryContainer = document.querySelector(".gallery");
 
-// Додаємо в DOM
-galleryContainer.innerHTML = galleryMarkup;
+  if (!galleryContainer) {
+    console.error("Gallery container not found!");
+    return;
+  }
 
-// Ініціалізуємо SimpleLightbox
-const lightbox = new SimpleLightbox(".gallery a", {
-  captionsData: "alt", // Відображаємо підпис з alt
-  captionDelay: 250,   // Затримка 250мс
+  const galleryMarkup = images
+    .map(
+      ({ preview, original, description }) => `
+        <li class="gallery-item">
+          <a class="gallery-link" href="${original}">
+            <img class="gallery-image" src="${preview}" alt="${description}" />
+          </a>
+        </li>
+      `
+    )
+    .join("");
+
+  galleryContainer.innerHTML = galleryMarkup;
+
+  const lightbox = new SimpleLightbox(".gallery a", {
+    captionsData: "alt",
+    captionDelay: 250,
+  });
 });
